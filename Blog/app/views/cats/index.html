@@ -1,0 +1,24 @@
+
+<fieldset style="background:lightyellow">
+<legend><%= link_to "New", new_cat_path %></legend>
+
+<table width="100%" align="center" >
+
+		<tr id="cl" >
+			<th align="center">Name</th>
+			<th align="center">Date</th>
+			<th align="center">Delete</th>
+		</tr>
+	<% @cats.each do|x|%>
+		<tr bgcolor=#a1eeee>
+			<td align="center" width="40%"><%=link_to x.name, cat_path(x) %></td>
+			<td  align="center"><%=format(x.created_at)%></td>
+			<td align="center"> <%= link_to "Delete", cat_path(x) , :method => :delete , :confirm=>"are you sure to delete this record?" %></td>
+		</tr>
+
+	<%end%>
+
+</table>
+
+
+</fieldset>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+	
+</head>
+<body>
+<div class="page">
+	<%= render :partial => "shared/header"%>
+	<div align="center" id="msg"><%=flash[:notice]%></div>
+<%= yield %>
+<br/>
+	<%= render :partial => "shared/footer"%>
+</div>
+</body>
+</html>

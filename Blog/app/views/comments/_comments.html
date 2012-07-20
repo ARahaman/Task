@@ -1,0 +1,16 @@
+
+<% if @post.comments.empty? %>
+<% else %>
+
+<% @post.comments.each do|comment|%>
+<div id="cls">
+<%=simple_format(comment.comment) %>
+<small><%= format(comment.created_at) %></small>
+<div align="right">
+	<%= link_to "Delete", post_comment_path(comment.id, comment.post_id) , :method => :delete , :confirm=>"are you sure?" %>
+</div>
+
+</div><% end %>
+<% end %>
+
+

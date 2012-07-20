@@ -1,0 +1,28 @@
+<center>
+
+<table width="100%">
+<%=link_to "New Post", new_post_path()%> 
+		<tr bgcolor=#efefff>
+			<th>Title</th>
+			<th>Body</th>
+			<th>Publish</th>
+			<th>Category</th>
+			<th>Delete</th>
+		</tr>
+
+	<%@posts.each do|x|%>
+
+		<tr bgcolor=#efefea>
+			<td align="center" width="30%"><%=link_to x.title, post_path(x) %></td>
+			<td  align="center"><%=x.body%></td>
+			<td  align="center"><%=format(x.created_at)%></td>
+			<td  align="center"><%=x.cat.name%>	</td>
+			<td align="center"><%= link_to "delete", post_path(x) , :method => :delete , :confirm=>"are you sure?" %></td>
+		</tr>
+
+	<%end%>
+
+</table>
+
+
+</center>

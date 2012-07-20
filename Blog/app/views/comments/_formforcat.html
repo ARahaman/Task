@@ -1,0 +1,30 @@
+<%
+if @cat.new_record?
+	url=cats_path
+	method=:cat
+else
+	url=cat_path(@cat)
+	method=:put
+end	
+%>
+
+<div style="border: 2px solid #efefef; background-color: lightyellow; padding: 10px ">
+<div align="left">
+  <% if @cat.errors.any? %>
+    <div id="errors" style="color: red">
+      <strong>Post was not saved because of the following errors</strong>
+      <ul>
+        <% @cat.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ </div>
+  
+<%= form_for @cat, :url=>url, :method=>method do |f|%>
+Title : <%= f.text_field :name%></br>
+</br>
+<%= f.submit("save")%>
+<%end%>
+
